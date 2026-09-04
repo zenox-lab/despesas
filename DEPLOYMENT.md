@@ -18,7 +18,7 @@ Este projeto foi migrado de Lovable para um ambiente autónomo utilizando a Verc
 1. Crie um novo projeto na [Vercel](https://vercel.com/) e ligue ao seu repositório Git.
 2. Nas definições de **Build and Output Settings**, a Vercel deve detetar automaticamente o framework (Vite).
    - O comando de build deve ser `npm run build` ou `pnpm build`.
-   - O diretório de output já está configurado no `vercel.json` (redireciona para o `dist/client`).
+   - O output é gerido automaticamente pelo preset Nitro (`.vercel/output`).
 3. Vá a **Environment Variables** e adicione:
    - `VITE_SUPABASE_URL`: (o URL do projeto)
    - `VITE_SUPABASE_ANON_KEY`: (a chave pública anon)
