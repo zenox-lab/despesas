@@ -1,0 +1,370 @@
+{
+  "items": [
+    {
+      "id": "1a4ce8b0-33c1-4d62-b14e-0a1d8e5b1001",
+      "name": "Kérastase Genesis Homme Spray de Force Épaississant 150 ml",
+      "price": 31.91,
+      "link": "https://kelujo.com/kerastase/genesis-homme/spray-de-force-epaississant-150ml",
+      "category": "Cuidado Pessoal",
+      "bought": false,
+      "plan": "proximo_mes",
+      "store": "Kelujo",
+      "photo": "https://kelujo.com/4264-large_default/spray-de-force-epaississant-150ml.jpg"
+    },
+    {
+      "id": "1a4ce8b0-33c1-4d62-b14e-0a1d8e5b1002",
+      "name": "ISDIN Fusion Water Magic SPF 50 50 ml",
+      "price": 21.95,
+      "link": "https://www.druni.es/fotoprotector-fusion-water-isdin-protector-solar-base-agua-spf-50",
+      "category": "Cuidado Pessoal",
+      "bought": false,
+      "plan": "este_mes",
+      "store": "Druni",
+      "photo": "https://www.druni.es/media/catalog/product/5/7/5794708.jpg?quality=80&fit=bounds&height=750&width=750&canvas=750:750"
+    },
+    {
+      "id": "1a4ce8b0-33c1-4d62-b14e-0a1d8e5b1003",
+      "name": "Revlon Professional Uniq One All In One 150 ml",
+      "price": 7.7,
+      "link": "https://www.druni.es/uniq-one-all-in-one-revlon-professional-sin-aclarado-todo-tipo-cabellos",
+      "category": "Cuidado Pessoal",
+      "bought": false,
+      "plan": "este_mes",
+      "store": "Druni",
+      "photo": "https://www.druni.es/media/catalog/product/7/0/7001268.png?quality=80&fit=bounds&height=750&width=750&canvas=750:750"
+    },
+    {
+      "id": "1a4ce8b0-33c1-4d62-b14e-0a1d8e5b1005",
+      "name": "Kérastase Genesis Homme Bain de Masse Épaississant 250 ml",
+      "price": 22.99,
+      "link": "https://www.druni.es/genesis-homme-bain-masse-epaississant-kerastase-champu-reforzador-espesor",
+      "category": "Cuidado Pessoal",
+      "bought": false,
+      "plan": "este_mes",
+      "store": "Druni",
+      "photo": "https://www.druni.es/media/catalog/product/7/0/7003419.jpg?quality=80&fit=bounds&height=750&width=750&canvas=750:750"
+    },
+    {
+      "id": "1a4ce8b0-33c1-4d62-b14e-0a1d8e5b1006",
+      "name": "Lattafa Asad Eau de Parfum 100 ml",
+      "price": 19.94,
+      "link": "https://www.primor.eu/es_es/lattafa-asad-eau-de-parfum-126177.html",
+      "category": "Beleza",
+      "bought": false,
+      "plan": "proximo_mes",
+      "store": "Primor",
+      "photo": "https://cdn2.primor.eu/media/catalog/product/cache/f8158826193ba5faa8b862a9bd1eb9e9/A/S/ASAD_db52.JPG"
+    },
+    {
+      "id": "1a4ce8b0-33c1-4d62-b14e-0a1d8e5b1007",
+      "name": "Minoxidil Viñas 50 mg/ml",
+      "price": 20.25,
+      "link": "https://www.farmainstant.com/anticaida-cabello/7857-vinas-minoxidil-50mg-ml.html",
+      "category": "Farmácia",
+      "bought": false,
+      "plan": "este_mes",
+      "store": "FarmaInstant",
+      "photo": "https://www.farmainstant.com/7857-large_default/vinas-minoxidil-50mg-ml.jpg"
+    },
+    {
+      "id": "1a4ce8b0-33c1-4d62-b14e-0a1d8e5b1008",
+      "name": "Philips Bodygroom Series 7000 BG7480/15",
+      "price": 66.03,
+      "link": "https://www.mediamarkt.es/es/product/_afeitadora-corporal-philips-bg748015-3-accesorios-120-min-cabezal-flexible-2d-y-sistema-de-recorte-y-afeitado-negro-intenso-1617716.HTML",
+      "category": "Cuidado Pessoal",
+      "bought": false,
+      "plan": "proximo_mes",
+      "store": "MediaMarkt",
+      "photo": "https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MMS_171678661/fee_786_587_png"
+    },
+    {
+      "id": "1a4ce8b0-33c1-4d62-b14e-0a1d8e5b1009",
+      "name": "UGREEN Nexode Air carregador USB-C GaN 45W",
+      "price": 24.99,
+      "link": "https://eu.ugreen.com/es-es/products/nexode-air-usb-c-charger-45w-gan-foldable-plug",
+      "category": "Eletrônicos",
+      "bought": false,
+      "plan": "proximo_mes",
+      "store": "UGREEN",
+      "photo": "https://eu.ugreen.com/cdn/shop/files/ugreen-nexode-air-usb-c-charger-45w-gan-foldable-plug-1514178.webp?v=1780106542"
+    },
+    {
+      "id": "rec-01",
+      "name": "Pão de hambúrguer",
+      "price": 2.25,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-02",
+      "name": "Detergente em pó",
+      "price": 6.9,
+      "category": "Casa / Limpeza",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-03",
+      "name": "Queijo",
+      "price": 1.95,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-04",
+      "name": "Iogurte de morango",
+      "price": 1.3,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-05",
+      "name": "Pasta Sensitive",
+      "price": 1.7,
+      "category": "Cuidado Pessoal",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-06",
+      "name": "Pão branco",
+      "price": 0.8,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-07",
+      "name": "Suco de Laranja",
+      "price": 1.4,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-08",
+      "name": "Arcos dentais",
+      "price": 1.8,
+      "category": "Cuidado Pessoal",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-09",
+      "name": "Água sanitária com detergente",
+      "price": 1.15,
+      "category": "Casa / Limpeza",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-10",
+      "name": "Leite integral sem lactose",
+      "price": 1.03,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-11",
+      "name": "Presunto",
+      "price": 2.2,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-12",
+      "name": "Ketchup",
+      "price": 1.05,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-13",
+      "name": "Desodorante Rexona antimanchas",
+      "price": 2.9,
+      "category": "Cuidado Pessoal",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-14",
+      "name": "Macarrão instantâneo de frango",
+      "price": 0.65,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-15",
+      "name": "Corante alimentício",
+      "price": 0.95,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-16",
+      "name": "Ovos grandes (12 unidades)",
+      "price": 3.05,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-17",
+      "name": "Detergente para lava-louças",
+      "price": 1.9,
+      "category": "Casa / Limpeza",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-18",
+      "name": "Papel higiênico rolo duplo",
+      "price": 2.35,
+      "category": "Casa / Limpeza",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-19",
+      "name": "Alho e salsa",
+      "price": 1.35,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-20",
+      "name": "Molho de tomate frito sem açúcar",
+      "price": 1.1,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "rec-21",
+      "name": "Espaguete",
+      "price": 1.15,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "quantity": 1
+    },
+    {
+      "id": "base-rec-001",
+      "name": "Ovos (dúzia)",
+      "price": 2.49,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "frequency": "semanal",
+      "store": "Supermercado"
+    },
+    {
+      "id": "base-rec-002",
+      "name": "Leite UHT 1L",
+      "price": 0.95,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "frequency": "semanal",
+      "store": "Supermercado"
+    },
+    {
+      "id": "base-rec-003",
+      "name": "Pão de Forma",
+      "price": 1.59,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "frequency": "semanal",
+      "store": "Padaria"
+    },
+    {
+      "id": "base-rec-004",
+      "name": "Café Moído 250g",
+      "price": 3.2,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "frequency": "quinzenal",
+      "store": "Supermercado"
+    },
+    {
+      "id": "base-rec-005",
+      "name": "Macarrão Spagheti 500g",
+      "price": 1.1,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "frequency": "mensal",
+      "store": "Supermercado"
+    },
+    {
+      "id": "base-rec-006",
+      "name": "Arroz Agulha 1kg",
+      "price": 1.35,
+      "category": "Alimentação",
+      "bought": false,
+      "plan": "recorrentes",
+      "frequency": "mensal",
+      "store": "Supermercado"
+    },
+    {
+      "id": "base-rec-007",
+      "name": "Papel Higiênico (12 rolos)",
+      "price": 4.8,
+      "category": "Casa / Limpeza",
+      "bought": false,
+      "plan": "recorrentes",
+      "frequency": "quinzenal",
+      "store": "Supermercado"
+    },
+    {
+      "id": "base-rec-008",
+      "name": "Shampoo 400ml",
+      "price": 3.99,
+      "category": "Cuidado Pessoal",
+      "bought": false,
+      "plan": "recorrentes",
+      "frequency": "mensal",
+      "store": "Supermercado"
+    }
+  ],
+  "categories": [
+    "Alimentação",
+    "Casa / Limpeza",
+    "Cuidado Pessoal",
+    "Farmácia",
+    "Beleza",
+    "Eletrônicos",
+    "Outros"
+  ]
+}

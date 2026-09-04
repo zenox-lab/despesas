@@ -1,0 +1,251 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system — Central Pessoal de Compras e Finanças
+ *
+ * Paleta: background quente/off-white · navy/preto azulado · verde · branco · cinzas suaves
+ * Radius: 10–14px para superfícies maiores, 6–10px em controles
+ * Hierarquia editorial, não SaaS
+ */
+
+@theme inline {
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 14px;
+  --radius-3xl: 18px;
+  --radius-4xl: 22px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-surface: var(--surface);
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --shadow-soft: 0 1px 3px oklch(0.45 0.05 240 / 0.07), 0 4px 12px -4px oklch(0.45 0.05 240 / 0.10);
+  --shadow-float: 0 8px 28px -8px oklch(0.45 0.05 240 / 0.22);
+  --shadow-card: 0 1px 2px oklch(0.45 0.05 240 / 0.06);
+}
+
+:root {
+  --radius: 0.625rem; /* 10px base */
+  /* Background quente/off-white */
+  --background: oklch(0.978 0.008 80);
+  --surface: oklch(1 0 0);
+  /* Navy/preto azulado para navegação */
+  --navy: oklch(0.20 0.04 255);
+  --navy-foreground: oklch(0.97 0.005 255);
+  /* Foreground principal */
+  --foreground: oklch(0.20 0.04 255);
+  /* Verde para ações positivas, confirmação, comprado, pago */
+  --success: oklch(0.62 0.14 155);
+  --success-foreground: oklch(0.99 0.005 155);
+  /* Primary = verde */
+  --primary: oklch(0.58 0.155 155);
+  --primary-foreground: oklch(0.99 0.005 155);
+  /* Restante do sistema */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.20 0.04 255);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.20 0.04 255);
+  --secondary: oklch(0.955 0.012 230);
+  --secondary-foreground: oklch(0.32 0.04 240);
+  --muted: oklch(0.956 0.008 230);
+  --muted-foreground: oklch(0.54 0.022 235);
+  --accent: oklch(0.93 0.03 160);
+  --accent-foreground: oklch(0.28 0.05 200);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.918 0.010 220);
+  --input: oklch(0.918 0.010 220);
+  --ring: oklch(0.58 0.155 155);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.20 0.04 255);
+  --sidebar-foreground: oklch(0.97 0.005 255);
+  --sidebar-primary: oklch(0.58 0.155 155);
+  --sidebar-primary-foreground: oklch(0.99 0.005 155);
+  --sidebar-accent: oklch(0.27 0.05 255);
+  --sidebar-accent-foreground: oklch(0.97 0.005 255);
+  --sidebar-border: oklch(0.28 0.045 255);
+  --sidebar-ring: oklch(0.58 0.155 155);
+}
+
+.dark {
+  --background: oklch(0.17 0.025 240);
+  --surface: oklch(0.22 0.03 240);
+  --navy: oklch(0.15 0.03 255);
+  --navy-foreground: oklch(0.95 0.005 255);
+  --success: oklch(0.68 0.13 155);
+  --success-foreground: oklch(0.16 0.03 155);
+  --foreground: oklch(0.97 0.005 255);
+  --card: oklch(0.22 0.035 260);
+  --card-foreground: oklch(0.97 0.005 255);
+  --popover: oklch(0.22 0.035 260);
+  --popover-foreground: oklch(0.97 0.005 255);
+  --primary: oklch(0.70 0.14 155);
+  --primary-foreground: oklch(0.16 0.03 155);
+  --secondary: oklch(0.28 0.04 260);
+  --secondary-foreground: oklch(0.97 0.005 255);
+  --muted: oklch(0.28 0.04 260);
+  --muted-foreground: oklch(0.64 0.04 250);
+  --accent: oklch(0.28 0.04 260);
+  --accent-foreground: oklch(0.97 0.005 255);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 13%);
+  --ring: oklch(0.70 0.14 155);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.15 0.03 255);
+  --sidebar-foreground: oklch(0.95 0.005 255);
+  --sidebar-primary: oklch(0.70 0.14 155);
+  --sidebar-primary-foreground: oklch(0.16 0.03 155);
+  --sidebar-accent: oklch(0.22 0.04 255);
+  --sidebar-accent-foreground: oklch(0.95 0.005 255);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.70 0.14 155);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(circle at 8% 0%, oklch(0.88 0.07 140 / 0.14), transparent 26rem),
+      radial-gradient(circle at 96% 30%, oklch(0.86 0.06 240 / 0.12), transparent 30rem);
+    background-attachment: fixed;
+    overscroll-behavior-x: none;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+
+/* ─── Utilities ─── */
+
+/** Superfície de card — subtil, sem excesso de sombra */
+@utility card-soft {
+  background-color: var(--surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+/** Row densa de produto — 60-72px de altura */
+@utility item-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.875rem;
+  background-color: var(--surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  min-height: 64px;
+  transition: background-color 0.15s, border-color 0.15s;
+
+  &:hover {
+    border-color: oklch(0.58 0.155 155 / 0.3);
+    background-color: oklch(0.58 0.155 155 / 0.02);
+  }
+}
+
+/** Seção compacta com divisor sutil */
+@utility dense-section {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/** Divider editorial */
+@utility section-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0.75rem 0;
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@utility animate-rise {
+  animation: rise-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@utility animate-fade {
+  animation: fade-in 0.2s ease both;
+}
+
+/** Padding-bottom responsivo: 72px + safe area no mobile, normal no desktop */
+@utility pb-safe-nav {
+  padding-bottom: calc(env(safe-area-inset-bottom) + 72px);
+
+  @media (min-width: 768px) {
+    padding-bottom: 2rem;
+  }
+}
