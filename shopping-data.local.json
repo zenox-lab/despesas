@@ -356,6 +356,247 @@
       "plan": "recorrentes",
       "frequency": "mensal",
       "store": "Supermercado"
+    },
+    {
+      "id": "a7a7e50d-ab4c-477b-903e-a2bf22e1e6a9",
+      "name": "Detergente em pó",
+      "price": 6.9,
+      "category": "Casa / Limpeza",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "1202493a-76d3-4c6f-b4a7-e62d9173e1cc",
+      "name": "Queijo",
+      "price": 1.95,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "50696741-d30b-44f6-b206-db01440c85b0",
+      "name": "Iogurte",
+      "price": 1.3,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "d1857e73-b836-4e1b-9b2b-781a1d1b1e03",
+      "name": "Sensitive",
+      "price": 1.7,
+      "category": "Cuidado Pessoal",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "25f18d22-3e30-4e3a-bf85-c3ae35bc854b",
+      "name": "Suco de Laranja",
+      "price": 1.4,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "40b70097-9268-4690-a298-e42c2ab76952",
+      "name": "Arcos dentais",
+      "price": 1.8,
+      "category": "Cuidado Pessoal",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "35018848-f1a2-43b0-b025-3b7ff416753f",
+      "name": "Água sanitária com detergente",
+      "price": 1.15,
+      "category": "Casa / Limpeza",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "fa9beba9-64d9-4803-a140-99b8e19ef7ab",
+      "name": "Leite integral",
+      "price": 1.03,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "17bda14e-b2b1-4838-8813-4dfdea34e4f5",
+      "name": "Presunto",
+      "price": 2.2,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "f87c4581-bc74-431b-987e-b7c5d00a7039",
+      "name": "Ketchup",
+      "price": 1.05,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "0b77adb4-e2ed-47dc-a6e1-a49575d5f581",
+      "name": "Rexona",
+      "price": 2.9,
+      "category": "Cuidado Pessoal",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "67d246ae-a45c-405a-bc5f-44d9c88774ba",
+      "name": "Macarrão instantâneo de frango",
+      "price": 0.65,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "f71393b7-8b83-47c2-bf2a-84490d785107",
+      "name": "Escova de dentes média (pacote com 4)",
+      "price": 1.35,
+      "category": "Cuidado Pessoal",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "95c997ed-1411-40fd-a008-b11667f509ae",
+      "name": "Recipientes de 1 L (pacote com 2)",
+      "price": 2.05,
+      "category": "Casa / Limpeza",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "239bc585-43ef-42b3-9f6e-f5b692beca55",
+      "name": "Corante alimentício",
+      "price": 0.95,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "4f1bebbd-5293-45d7-861e-4e6c15c22c38",
+      "name": "Flan de ovo",
+      "price": 1.6,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "67a645c1-1f71-4450-b770-e49cf26cb27f",
+      "name": "Ovos grandes (12 unidades)",
+      "price": 3.05,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "b2d9a2bd-3484-40c1-b07f-c026b9bbdfb2",
+      "name": "Detergente para lava-louças",
+      "price": 1.9,
+      "category": "Casa / Limpeza",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "b5f4de87-7126-4a9f-b087-791d7b772f9f",
+      "name": "Papel higiênico rolo duplo",
+      "price": 2.35,
+      "category": "Casa / Limpeza",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "64a9bece-2108-4caa-8837-7455b7081986",
+      "name": "Alho e salsa",
+      "price": 1.35,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "b2c1103b-c934-4dba-a4d3-7dadd0bd4c4c",
+      "name": "Molho de tomate frito sem açúcar",
+      "price": 1.1,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "dc581e44-cd9a-46fe-9599-49471171d3e1",
+      "name": "Espaguete",
+      "price": 1.15,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "aaa9c7ae-4fd1-4d70-9973-25b87738f119",
+      "name": "Pote hermético de 1 L",
+      "price": 3,
+      "category": "Casa / Limpeza",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false
+    },
+    {
+      "id": "625b2a46-b43c-4892-9342-73c7f98f1754",
+      "name": "Camarão cozido",
+      "price": 10.95,
+      "category": "Alimentação",
+      "plan": "este_mes",
+      "intent": "comprar",
+      "quantity": 1,
+      "bought": false,
+      "notes": "€10,95/kg"
     }
   ],
   "categories": [
