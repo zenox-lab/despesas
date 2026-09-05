@@ -34,10 +34,14 @@ async function read(): Promise<LocalData> {
     parsed.items = (parsed.items ?? []).map(item => ({
       ...item,
       photo: item.photo ?? (item as any).image ?? (item as any).image_url ?? (item as any).imageUrl ?? (item as any).thumbnail ?? (item as any).thumbnail_url ?? undefined,
-    }));
+    })).sort((a, b) => (a.name || "").localeCompare(b.name || "", "pt-BR", { sensitivity: "base" }));
+    parsed.categories = [...(parsed.categories ?? DEFAULT_CATEGORIES)].sort((a, b) => (a || "").localeCompare(b || "", "pt-BR", { sensitivity: "base" }));
     return parsed;
   } catch {
-    const data = { items: seedItems, categories: DEFAULT_CATEGORIES };
+    const data = {
+      items: seedItems.sort((a, b) => a.name.localeCompare(b.name, "pt-BR", { sensitivity: "base" })),
+      categories: [...DEFAULT_CATEGORIES].sort((a, b) => a.localeCompare(b, "pt-BR", { sensitivity: "base" }))
+    };
     await write(data);
     return data;
   }

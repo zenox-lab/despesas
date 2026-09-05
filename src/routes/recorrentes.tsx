@@ -30,6 +30,8 @@ import {
   effectiveIntent,
   getItemListName,
   FREQUENCY_LABELS,
+  sortItemsAlphabetically,
+  sortCategoriesAlphabetically,
   type ShoppingItem,
 } from "@/lib/shopping";
 import { requireUnlocked } from "@/lib/gate.functions";
@@ -110,13 +112,13 @@ function Recorrentes() {
 
   // Lista base permanente de itens recorrentes
   const baseItems = useMemo(() => {
-    return items.filter((item) => effectiveIntent(item) === "recorrente");
+    return sortItemsAlphabetically(items.filter((item) => effectiveIntent(item) === "recorrente"));
   }, [items]);
 
   // Obter todas as categorias únicas (registradas + presentes nos itens base)
   const allCategories = useMemo(() => {
     const set = new Set([...categories, ...baseItems.map((i) => i.category)]);
-    return Array.from(set);
+    return sortCategoriesAlphabetically(Array.from(set));
   }, [categories, baseItems]);
 
   // Selecionar por padrão a primeira categoria se nenhuma estiver selecionada
@@ -128,7 +130,7 @@ function Recorrentes() {
 
   // Itens selecionados para a "Próxima compra"
   const selectedItems = useMemo(() => {
-    return baseItems.filter((i) => selectedIds.includes(i.id));
+    return sortItemsAlphabetically(baseItems.filter((i) => selectedIds.includes(i.id)));
   }, [baseItems, selectedIds]);
 
   // Valor total estimado dos itens selecionados
@@ -139,7 +141,7 @@ function Recorrentes() {
   // Itens da categoria selecionada
   const activeCategoryItems = useMemo(() => {
     if (!selectedCategory) return [];
-    return baseItems.filter((item) => {
+    const filtered = baseItems.filter((item) => {
       if (item.category !== selectedCategory) return false;
       if (showOnlySelected && !selectedIds.includes(item.id)) return false;
       if (search && !item.name.toLowerCase().includes(search.toLowerCase())) return false;
@@ -155,6 +157,7 @@ function Recorrentes() {
       }
       return true;
     });
+    return sortItemsAlphabetically(filtered);
   }, [baseItems, selectedCategory, period, search, showOnlySelected, selectedIds]);
 
   // Alternar seleção individual

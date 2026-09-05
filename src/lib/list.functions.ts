@@ -47,15 +47,15 @@ export const getList = createServerFn({ method: "GET" }).handler(async () => {
     supabaseAdmin
       .from("shopping_items")
       .select("id, name, price, link, photo, category, bought, plan, intent, store, address, quantity, notes, priority, wish_status, desired_price, planned_month, frequency, frequency_days, last_date, next_date")
-      .order("created_at", { ascending: true }),
-    supabaseAdmin.from("shopping_categories").select("name").order("created_at"),
+      .order("name", { ascending: true }),
+    supabaseAdmin.from("shopping_categories").select("name").order("name", { ascending: true }),
   ]);
   if (items.error) throw items.error;
   if (categories.error) throw categories.error;
 
-  const { extractListNameFromNotes } = await import("@/lib/shopping");
+  const { extractListNameFromNotes, sortItemsAlphabetically, sortCategoriesAlphabetically } = await import("@/lib/shopping");
 
-  const list: ShoppingItem[] = (items.data ?? []).map((row: any) => ({
+  const list: ShoppingItem[] = sortItemsAlphabetically((items.data ?? []).map((row: any) => ({
     id: row.id,
     name: row.name,
     price: Number(row.price) || 0,
@@ -78,12 +78,12 @@ export const getList = createServerFn({ method: "GET" }).handler(async () => {
     lastDate: row.last_date ?? undefined,
     nextDate: row.next_date ?? undefined,
     listName: row.listName ?? row.list_name ?? extractListNameFromNotes(row.notes) ?? undefined,
-  }));
+  })));
 
   const stored = (categories.data ?? []).map((c: any) => c.name);
   return {
     items: list,
-    categories: stored.length > 0 ? stored : DEFAULT_CATEGORIES,
+    categories: sortCategoriesAlphabetically(stored.length > 0 ? stored : DEFAULT_CATEGORIES),
   };
 });
 

@@ -253,6 +253,14 @@ export function formatCurrency(value: number, currency: "EUR" | "USD" | "BRL") {
   }).format(value || 0)}`;
 }
 
+export function sortItemsAlphabetically(items: ShoppingItem[]): ShoppingItem[] {
+  return [...items].sort((a, b) => (a.name || "").localeCompare(b.name || "", "pt-BR", { sensitivity: "base" }));
+}
+
+export function sortCategoriesAlphabetically(categories: string[]): string[] {
+  return [...categories].sort((a, b) => (a || "").localeCompare(b || "", "pt-BR", { sensitivity: "base" }));
+}
+
 export function groupByCategory(items: ShoppingItem[]) {
   const groups = new Map<string, ShoppingItem[]>();
   for (const item of items) {
@@ -260,7 +268,12 @@ export function groupByCategory(items: ShoppingItem[]) {
     list.push(item);
     groups.set(item.category, list);
   }
-  return Array.from(groups.entries());
+  return Array.from(groups.entries())
+    .sort(([catA], [catB]) => catA.localeCompare(catB, "pt-BR", { sensitivity: "base" }))
+    .map(([cat, catItems]) => [
+      cat,
+      [...catItems].sort((a, b) => (a.name || "").localeCompare(b.name || "", "pt-BR", { sensitivity: "base" })),
+    ] as [string, ShoppingItem[]]);
 }
 
 /** Retorna o intent efetivo de um item (prioriza intent, fallback via plan) */

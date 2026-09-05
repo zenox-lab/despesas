@@ -19,6 +19,7 @@ import {
   effectiveIntent,
   planFromIntent,
   loadItems,
+  sortItemsAlphabetically,
   type ShoppingItem,
   type ItemIntent,
 } from "@/lib/shopping";
@@ -205,10 +206,10 @@ function Index() {
     year: "numeric",
   });
 
-  const allComprar = items.filter((i) => !i.bought && effectiveIntent(i) === "comprar");
+  const allComprar = sortItemsAlphabetically(items.filter((i) => !i.bought && effectiveIntent(i) === "comprar"));
   const comprarItems = allComprar.slice(0, 4); // Max 4 items on home
-  const allRecorrentes = items.filter((i) => !i.bought && effectiveIntent(i) === "recorrente");
-  const allDesejos = items.filter((i) => effectiveIntent(i) === "desejo");
+  const allRecorrentes = sortItemsAlphabetically(items.filter((i) => !i.bought && effectiveIntent(i) === "recorrente"));
+  const allDesejos = sortItemsAlphabetically(items.filter((i) => effectiveIntent(i) === "desejo"));
   const desejos = allDesejos.slice(0, 4);
 
   const upcomingList = [

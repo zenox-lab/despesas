@@ -14,6 +14,7 @@ import {
   effectiveIntent,
   planFromIntent,
   itemTotal,
+  sortItemsAlphabetically,
   type ShoppingItem,
   type ItemIntent,
 } from "@/lib/shopping";
@@ -76,12 +77,13 @@ function Desejos() {
   }, [reload]);
 
   const visible = useMemo(() => {
-    return items.filter((item) => {
+    const filtered = items.filter((item) => {
       if (effectiveIntent(item) !== "desejo") return false;
       if (search && !item.name.toLowerCase().includes(search.toLowerCase())) return false;
       if (wishStatusFilter !== "todos" && item.wishStatus !== wishStatusFilter) return false;
       return true;
     });
+    return sortItemsAlphabetically(filtered);
   }, [items, search, wishStatusFilter]);
 
   const handleQuickAdd = async (partialItem: Partial<ShoppingItem> & { name: string }, intent: ItemIntent) => {

@@ -33,6 +33,8 @@ import {
   getItemListName,
   DEFAULT_SHOPPING_LISTS,
   planFromIntent,
+  sortItemsAlphabetically,
+  sortCategoriesAlphabetically,
   type ShoppingItem,
 } from "@/lib/shopping";
 import { requireUnlocked } from "@/lib/gate.functions";
@@ -119,7 +121,7 @@ function Comprar() {
 
   // Apenas itens de compras (exclui estritamente a lista de Desejos e Recorrentes base)
   const comprarItems = useMemo(() => {
-    return items.filter((i) => effectiveIntent(i) === "comprar");
+    return sortItemsAlphabetically(items.filter((i) => effectiveIntent(i) === "comprar"));
   }, [items]);
 
   // Obter todas as listas planejadas únicas (padrões + customizadas com itens)
@@ -132,7 +134,7 @@ function Comprar() {
   // Itens visíveis dentro da lista aberta (se houver)
   const activeListItems = useMemo(() => {
     if (!activeList) return [];
-    return comprarItems.filter((i) => getItemListName(i) === activeList);
+    return sortItemsAlphabetically(comprarItems.filter((i) => getItemListName(i) === activeList));
   }, [comprarItems, activeList]);
 
   const visibleItems = useMemo(() => {
@@ -153,7 +155,7 @@ function Comprar() {
         [i.name, i.category, i.store, i.notes].some((val) => val?.toLowerCase().includes(term))
       );
     }
-    return list;
+    return sortItemsAlphabetically(list);
   }, [activeListItems, filter, search, showPurchased]);
 
   const groups = useMemo(() => groupByCategory(visibleItems), [visibleItems]);
