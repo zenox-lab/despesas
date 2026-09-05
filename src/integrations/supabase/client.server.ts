@@ -5,13 +5,16 @@ import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
 function createSupabaseAdminClient() {
-  const url = process.env['SUPABASE_URL'];
-  const serviceRoleKey = process.env['SUPABASE_SERVICE_ROLE_KEY'];
+  const url = process.env['SUPABASE_URL'] || process.env['VITE_SUPABASE_URL'];
+  const serviceRoleKey =
+    process.env['SUPABASE_SERVICE_ROLE_KEY'] ||
+    process.env['SUPABASE_ANON_KEY'] ||
+    process.env['VITE_SUPABASE_ANON_KEY'];
 
   if (!url || !serviceRoleKey) {
     const missing = [
-      ...(!url ? ['SUPABASE_URL'] : []),
-      ...(!serviceRoleKey ? ['SUPABASE_SERVICE_ROLE_KEY'] : []),
+      ...(!url ? ['SUPABASE_URL (ou VITE_SUPABASE_URL)'] : []),
+      ...(!serviceRoleKey ? ['SUPABASE_SERVICE_ROLE_KEY (ou VITE_SUPABASE_ANON_KEY)'] : []),
     ];
     const message = `Missing Supabase server environment variable(s): ${missing.join(', ')}. Check your .env file or Vercel Environment Variables.`;
     console.error(`[Supabase Admin] ${message}`);

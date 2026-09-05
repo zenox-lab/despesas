@@ -17,6 +17,10 @@ const itemInput = z.object({
   desiredPrice: z.number().min(0).max(1_000_000).optional().nullable(),
   wishStatus: z.enum(["quero", "talvez", "em_breve"]).optional().nullable(),
   listName: z.string().trim().max(100).optional().nullable(),
+  frequency: z.string().max(50).optional().nullable(),
+  frequencyDays: z.number().int().optional().nullable(),
+  priority: z.string().max(20).optional().nullable(),
+  intent: z.enum(["comprar", "desejo", "recorrente"]).optional().nullable(),
 });
 
 export const getList = createServerFn({ method: "GET" }).handler(async () => {
@@ -30,7 +34,6 @@ export const getList = createServerFn({ method: "GET" }).handler(async () => {
   let supabaseAdmin;
   try {
     ({ supabaseAdmin } = await import("@/integrations/supabase/client.server"));
-    // Force lazy client initialization so missing local secrets are handled here.
     void supabaseAdmin.from;
   } catch (error) {
     if (isLocalAuthBypassed()) {
@@ -43,7 +46,7 @@ export const getList = createServerFn({ method: "GET" }).handler(async () => {
   const [items, categories] = await Promise.all([
     supabaseAdmin
       .from("shopping_items")
-      .select("id, name, price, link, photo, category, bought, plan, store, address, quantity, notes")
+      .select("id, name, price, link, photo, category, bought, plan, intent, store, address, quantity, notes, priority, wish_status, desired_price, planned_month, frequency, frequency_days, last_date, next_date")
       .order("created_at", { ascending: true }),
     supabaseAdmin.from("shopping_categories").select("name").order("created_at"),
   ]);
@@ -52,25 +55,32 @@ export const getList = createServerFn({ method: "GET" }).handler(async () => {
 
   const { extractListNameFromNotes } = await import("@/lib/shopping");
 
-  const list: ShoppingItem[] = (items.data ?? []).map((row) => ({
+  const list: ShoppingItem[] = (items.data ?? []).map((row: any) => ({
     id: row.id,
     name: row.name,
     price: Number(row.price) || 0,
     link: row.link ?? undefined,
-    photo: row.photo ?? (row as any).image ?? (row as any).image_url ?? (row as any).imageUrl ?? (row as any).thumbnail ?? (row as any).thumbnail_url ?? undefined,
+    photo: row.photo ?? row.image ?? row.image_url ?? row.imageUrl ?? row.thumbnail ?? row.thumbnail_url ?? undefined,
     category: row.category,
     bought: row.bought,
     plan: (row.plan as ShoppingItem["plan"]) ?? undefined,
+    intent: (row.intent as ShoppingItem["intent"]) ?? undefined,
     store: row.store ?? undefined,
     address: row.address ?? undefined,
     quantity: row.quantity ?? 1,
     notes: row.notes ?? undefined,
-    listName: (row as any).listName ?? (row as any).list_name ?? extractListNameFromNotes(row.notes) ?? undefined,
-    desiredPrice: (row as any).desiredPrice ?? (row as any).desired_price ?? undefined,
-    wishStatus: (row as any).wishStatus ?? (row as any).wish_status ?? undefined,
+    priority: (row.priority as ShoppingItem["priority"]) ?? undefined,
+    wishStatus: (row.wish_status as ShoppingItem["wishStatus"]) ?? undefined,
+    desiredPrice: Number(row.desired_price) || undefined,
+    plannedMonth: row.planned_month ?? undefined,
+    frequency: (row.frequency as ShoppingItem["frequency"]) ?? undefined,
+    frequencyDays: row.frequency_days ?? undefined,
+    lastDate: row.last_date ?? undefined,
+    nextDate: row.next_date ?? undefined,
+    listName: row.listName ?? row.list_name ?? extractListNameFromNotes(row.notes) ?? undefined,
   }));
 
-  const stored = (categories.data ?? []).map((c) => c.name);
+  const stored = (categories.data ?? []).map((c: any) => c.name);
   return {
     items: list,
     categories: stored.length > 0 ? stored : DEFAULT_CATEGORIES,
@@ -94,11 +104,12 @@ export const saveItem = createServerFn({ method: "POST" })
         address: data.address ?? undefined, quantity: data.quantity ?? 1,
         notes: formattedNotes,
         listName: data.listName ?? undefined,
+        frequency: (data.frequency as ShoppingItem["frequency"]) ?? undefined,
       });
     }
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
-    const payload = {
+    const payload: Record<string, any> = {
       name: data.name,
       price: data.price,
       link: data.link || null,
@@ -110,17 +121,26 @@ export const saveItem = createServerFn({ method: "POST" })
       notes: formattedNotes || null,
       desired_price: data.desiredPrice || null,
       wish_status: data.wishStatus || null,
+      frequency: data.frequency || (data.plan === "recorrentes" ? "semanal" : null),
+      ...(data.frequencyDays ? { frequency_days: data.frequencyDays } : {}),
+      ...(data.priority ? { priority: data.priority } : {}),
       ...(data.plan !== undefined ? { plan: data.plan } : {}),
+      ...(data.plan === "recorrentes" ? { intent: "recorrente" } : {}),
     };
 
-
     if (data.id) {
-      const { error } = await supabaseAdmin
-        .from("shopping_items")
-        .update(payload)
-        .eq("id", data.id);
-      if (error) throw error;
-      return { id: data.id };
+      const isUuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(data.id);
+      if (isUuid) {
+        const { error } = await supabaseAdmin
+          .from("shopping_items")
+          .update(payload)
+          .eq("id", data.id);
+        if (error) {
+          console.error("[saveItem] Erro ao atualizar item no Supabase:", error);
+          throw error;
+        }
+        return { id: data.id };
+      }
     }
 
     const { data: inserted, error } = await supabaseAdmin
@@ -128,7 +148,10 @@ export const saveItem = createServerFn({ method: "POST" })
       .insert(payload)
       .select("id")
       .single();
-    if (error) throw error;
+    if (error) {
+      console.error("[saveItem] Erro ao inserir item no Supabase:", error);
+      throw error;
+    }
     return { id: inserted.id };
   });
 

@@ -182,3 +182,42 @@ ALTER TABLE public.fixed_expense_occurrences ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.purchase_history ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.finance_transfers ENABLE ROW LEVEL SECURITY;
 
+-- Políticas de acesso irrestrito para anon e authenticated (aplicativo de uso pessoal)
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'shopping_items' AND policyname = 'Allow all on shopping_items') THEN
+    CREATE POLICY "Allow all on shopping_items" ON public.shopping_items FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'shopping_categories' AND policyname = 'Allow all on shopping_categories') THEN
+    CREATE POLICY "Allow all on shopping_categories" ON public.shopping_categories FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'shopping_lists' AND policyname = 'Allow all on shopping_lists') THEN
+    CREATE POLICY "Allow all on shopping_lists" ON public.shopping_lists FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'shopping_list_items' AND policyname = 'Allow all on shopping_list_items') THEN
+    CREATE POLICY "Allow all on shopping_list_items" ON public.shopping_list_items FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'wishlist_items' AND policyname = 'Allow all on wishlist_items') THEN
+    CREATE POLICY "Allow all on wishlist_items" ON public.wishlist_items FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'recurring_categories' AND policyname = 'Allow all on recurring_categories') THEN
+    CREATE POLICY "Allow all on recurring_categories" ON public.recurring_categories FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'recurring_items' AND policyname = 'Allow all on recurring_items') THEN
+    CREATE POLICY "Allow all on recurring_items" ON public.recurring_items FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'fixed_expenses' AND policyname = 'Allow all on fixed_expenses') THEN
+    CREATE POLICY "Allow all on fixed_expenses" ON public.fixed_expenses FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'fixed_expense_occurrences' AND policyname = 'Allow all on fixed_expense_occurrences') THEN
+    CREATE POLICY "Allow all on fixed_expense_occurrences" ON public.fixed_expense_occurrences FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'purchase_history' AND policyname = 'Allow all on purchase_history') THEN
+    CREATE POLICY "Allow all on purchase_history" ON public.purchase_history FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE tablename = 'finance_transfers' AND policyname = 'Allow all on finance_transfers') THEN
+    CREATE POLICY "Allow all on finance_transfers" ON public.finance_transfers FOR ALL TO anon, authenticated USING (true) WITH CHECK (true);
+  END IF;
+END $$;
+
+
